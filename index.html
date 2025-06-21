@@ -7,111 +7,200 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
   <style>
-    :root {
-      --bg-dark: #0a0a0a;
-      --text-light: #f5f5f5;
-      --accent: #00ffff;
-    }
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #111;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
     header {
-      padding: 6vh 8vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 10;
-    }
-    .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-    section.hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
       text-align: center;
-      padding: 0 2rem;
+      padding: 6rem 2rem 2rem;
     }
-    .hero h1 {
+    header h1 {
       font-size: 3rem;
       font-weight: 700;
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #aaa;
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0.5rem;
     }
-    .hero .buttons {
-      margin-top: 2rem;
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
     }
-    .hero .buttons a {
-      padding: 0.8rem 1.6rem;
-      background: var(--accent);
-      color: #000;
-      border-radius: 8px;
-      text-decoration: none;
+    nav .logo {
       font-weight: 600;
-      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #007aff;
+    }
+    .project {
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
     }
-    .hero .buttons a:hover {
-      background: #00dddd;
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .chart-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .chart-box {
+      text-align: center;
     }
     footer {
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
+      background: #f1f1f1;
+      color: #555;
       font-size: 0.9rem;
-      color: #666;
     }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      nav a { font-size: 0.8rem; margin-left: 1rem; }
+    .toggle {
+      position: fixed;
+      right: 1rem;
+      top: 1rem;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    .dark-mode {
+      background: #111;
+      color: #f1f1f1;
+    }
+    .dark-mode nav {
+      background: #1a1a1a;
+    }
+    .dark-mode nav ul li a {
+      color: #eee;
+    }
+    .dark-mode .project {
+      background: #1e1e1e;
+    }
+    .dark-mode footer {
+      background: #1a1a1a;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+  <button class="toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
+  <nav>
+    <div class="logo">Krishay</div>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="KRISHAYRESUME.pdf" download>Resume</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <div class="logo">Krishay.dev</div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>👋 I'm Krishay Gahlaut</h1>
+    <p>iOS & Web Developer · Swift Enthusiast · Student</p>
   </header>
 
-  <section class="hero">
-    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>Crafting beautiful iOS and web experiences with Swift & HTML/CSS</p>
-    <div class="buttons">
-      <a href="#projects">See My Work</a>
-      <a href="KRISHAYRESUME.pdf" download>📄 Resume</a>
+  <section id="projects">
+    <h2>📱 Projects</h2>
+    <div class="project" data-sr><strong>BillBuster</strong> — Expense splitter with UPI, OCR, PDF export. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
+    <div class="project" data-sr><strong>FitFuel</strong> — AI meal logger with reminders & analytics. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
+    <div class="project" data-sr><strong>Weatherly</strong> — Animated iOS-style weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
+    <div class="project" data-sr><strong>TripiFy</strong> — Smart travel planner with maps & itinerary. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
+  </section>
+
+  <section id="skills">
+    <h2>🧠 Skills</h2>
+    <div class="chart-container">
+      <div class="chart-box"><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
+      <div class="chart-box"><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
+      <div class="chart-box"><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
+      <div class="chart-box"><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Krishay Gahlaut. Built with ❤️ & clean code.
+    🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
+
+  <script>
+    const toggleTheme = () => {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    ScrollReveal().reveal('[data-sr]', {
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 200
+    });
+
+    const createChart = (id, value) => {
+      new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [value, 100 - value],
+            backgroundColor: ['#007aff', '#e0e0e0'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          cutout: '70%',
+          plugins: {
+            tooltip: { enabled: false },
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    createChart('swiftChart', 90);
+    createChart('swiftuiChart', 85);
+    createChart('htmlChart', 80);
+    createChart('javaChart', 70);
+  </script>
 </body>
 </html>
