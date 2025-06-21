@@ -5,38 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishay Gahlaut | Portfolio</title>
   <link rel="stylesheet" href="global.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo">Krishay</div>
+    <div class="logo">Krishay</div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="skills.html">Skills</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif">Resume</a></li>
-      <li><button id="themeToggle">🌓</button></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=sharing" target="_blank">Resume</a></li>
     </ul>
+    <button id="themeToggle">🌗</button>
   </nav>
 
   <header class="hero" data-aos="fade-up">
-    <h1>👋 I'm Krishay Gahlaut</h1>
-    <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p class="tagline">iOS & Web Developer · Swift Enthusiast · CS Student</p>
+    <p>
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> · 
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+    </p>
   </header>
 
-  <section class="intro" data-aos="fade-up" data-aos-delay="300">
-    <p>Welcome to my professional portfolio. Scroll through to see my latest projects, skills, and how to reach me. Designed with care, built with Swift, HTML, and creativity. 🌟</p>
+  <section class="projects" id="projects">
+    <h2 data-aos="fade-right">📱 Featured Projects</h2>
+    <div class="project-card" data-aos="fade-up">
+      <h3>BillBuster</h3>
+      <p>Group expense splitter with UPI, OCR & PDF export</p>
+      <a href="https://github.com/krishaygahlaut/BillBuster" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card" data-aos="fade-up">
+      <h3>FitFuel</h3>
+      <p>AI-powered meal tracker with analytics and reminders</p>
+      <a href="https://github.com/krishaygahlaut/FitFuel" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card" data-aos="fade-up">
+      <h3>Weatherly</h3>
+      <p>Apple-style animated weather UI app</p>
+      <a href="https://github.com/krishaygahlaut/Weatherly" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card" data-aos="fade-up">
+      <h3>TripiFy</h3>
+      <p>Smart travel planner with itinerary saving and maps</p>
+      <a href="https://github.com/krishaygahlaut/TripiFy" target="_blank">View on GitHub →</a>
+    </div>
   </section>
 
-  <footer class="footer" data-aos="fade">
-    🚀 Portfolio by Krishay Gahlaut · 2025
+  <footer>
+    🚀 Portfolio by Krishay Gahlaut · © 2025 · <a href="mailto:krishaygahlaut@icloud.com">Email</a>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
   <script>AOS.init();</script>
 </body>
