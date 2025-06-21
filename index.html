@@ -4,22 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishay Gahlaut | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts & Libraries -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #fdfdfd;
+      background: #fdfdfd;
       color: #111;
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* Header */
     header {
       text-align: center;
       padding: 6rem 2rem 2rem;
@@ -33,41 +73,20 @@
       color: #666;
       margin-top: 0.5rem;
     }
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #fff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-    nav .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
+
+    /* Sections */
     section {
-      padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
+      padding: 4rem 2rem;
     }
     h2 {
       font-size: 2rem;
       margin-bottom: 2rem;
       color: #007aff;
     }
+
+    /* Projects */
     .project {
       background: #f5f5f5;
       border-radius: 12px;
@@ -80,6 +99,8 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+
+    /* Charts */
     .chart-container {
       display: flex;
       justify-content: space-around;
@@ -89,6 +110,8 @@
     .chart-box {
       text-align: center;
     }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
@@ -96,17 +119,8 @@
       color: #555;
       font-size: 0.9rem;
     }
-    .toggle {
-      position: fixed;
-      right: 1rem;
-      top: 1rem;
-      background: #111;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 20px;
-    }
+
+    /* Dark Mode */
     .dark-mode {
       background: #111;
       color: #f1f1f1;
@@ -128,28 +142,36 @@
 </head>
 <body>
   <button class="toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+  <!-- Navbar -->
   <nav>
     <div class="logo">Krishay</div>
     <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="KRISHAYRESUME.pdf" download>Resume</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=drivesdk" target="_blank">Resume</a></li>
     </ul>
   </nav>
 
+  <!-- Hero -->
   <header>
     <h1>👋 I'm Krishay Gahlaut</h1>
-    <p>iOS & Web Developer · Swift Enthusiast · Student</p>
+    <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
   </header>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>📱 Projects</h2>
-    <div class="project" data-sr><strong>BillBuster</strong> — Expense splitter with UPI, OCR, PDF export. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-    <div class="project" data-sr><strong>FitFuel</strong> — AI meal logger with reminders & analytics. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-    <div class="project" data-sr><strong>Weatherly</strong> — Animated iOS-style weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-    <div class="project" data-sr><strong>TripiFy</strong> — Smart travel planner with maps & itinerary. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
+    <div class="project" data-sr><strong>BillBuster</strong> — UPI & OCR-enabled expense tracker. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
+    <div class="project" data-sr><strong>FitFuel</strong> — Smart meal logger with reminders. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
+    <div class="project" data-sr><strong>Weatherly</strong> — Apple-style animated weather UI. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
+    <div class="project" data-sr><strong>TripiFy</strong> — AI-powered travel planner. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <h2>🧠 Skills</h2>
     <div class="chart-container">
@@ -160,15 +182,19 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Theme toggle
     const toggleTheme = () => {
       document.body.classList.toggle('dark-mode');
-    }
+    };
 
+    // Scroll animation
     ScrollReveal().reveal('[data-sr]', {
       distance: '50px',
       duration: 800,
@@ -177,6 +203,7 @@
       interval: 200
     });
 
+    // Skill charts
     const createChart = (id, value) => {
       new Chart(document.getElementById(id), {
         type: 'doughnut',
@@ -195,7 +222,7 @@
           }
         }
       });
-    }
+    };
 
     createChart('swiftChart', 90);
     createChart('swiftuiChart', 85);
