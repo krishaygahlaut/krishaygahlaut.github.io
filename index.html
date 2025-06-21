@@ -4,136 +4,182 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishay Gahlaut | iOS Developer</title>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      padding: 2rem;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #0f2027;
+      color: #f1f1f1;
       line-height: 1.6;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     header {
       text-align: center;
       margin-bottom: 2.5rem;
+      animation: fadeIn 1s ease-out;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.2rem;
-      color: #00ffff;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .resume-button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: #00ffff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0, 255, 255, 0.4);
-      transition: transform 0.2s ease;
-    }
-
-    .resume-button:hover {
-      transform: scale(1.05);
-    }
-
-    section {
-      margin-top: 3rem;
+      font-weight: bold;
     }
 
     h2 {
+      font-size: 1.7rem;
+      margin: 2rem 0 1rem;
       color: #00ffff;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
     }
 
-    .project {
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 0.8rem 0;
+    }
+
+    .project, .section-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
       padding: 1rem;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .project:hover, .section-card:hover {
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section-card {
       margin-bottom: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .project h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #fff;
-    }
-
-    .project a {
-      color: #00ffff;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .project p {
-      margin: 0.5rem 0 0;
-      font-size: 0.95rem;
-      color: #ccc;
     }
 
     footer {
-      text-align: center;
       margin-top: 3rem;
+      text-align: center;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #999;
     }
 
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .project, .section-card { padding: 0.8rem; }
+      h2 { font-size: 1.4rem; }
+    }
+
+    #tsparticles {
+      position: fixed;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
 
   <header>
-    <h1>👋 Krishay Gahlaut</h1>
-    <p class="subtitle">iOS Developer · SwiftUI Enthusiast · 3rd Year CS @ SRM</p>
-    <a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=sharing" class="resume-button" target="_blank">
-      📄 View Resume
-    </a>
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p>iOS Developer · Swift Enthusiast · CS Student</p>
+    <p>
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+    </p>
   </header>
 
   <section>
-    <h2>📱 Featured Projects</h2>
+    <h2>📱 Projects</h2>
+    <ul>
+      <li class="project"><strong>BillBuster</strong> – Expense splitter with UPI, OCR, SMS reminders · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
+      <li class="project"><strong>FitFuel</strong> – Smart AI meal logger with charts, search, iCloud · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
+      <li class="project"><strong>Weatherly</strong> – Minimal animated weather app with GPS · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
+      <li class="project"><strong>TripiFy</strong> – Trip planner with itinerary, maps & filters · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
+    </ul>
+  </section>
 
-    <div class="project">
-      <h3>BillBuster – Group Expense Splitter</h3>
-      <a href="https://github.com/krishaygahlaut/BillBuster" target="_blank">GitHub ↗</a>
-      <p>UPI integration, smart receipt scanning, PDF export, and SMS reminders built with SwiftUI.</p>
+  <section>
+    <h2>🎓 Education</h2>
+    <div class="section-card">
+      <p><strong>B.Tech in Computer Science</strong><br/>
+      SRM Institute of Science and Technology, Chennai<br/>
+      2023 – 2027 · CGPA: 8.3</p>
     </div>
+  </section>
 
-    <div class="project">
-      <h3>FitFuel – AI Meal Logger</h3>
-      <a href="https://github.com/krishaygahlaut/FitFuel" target="_blank">GitHub ↗</a>
-      <p>Calorie estimator, meal analytics, iCloud support, and search/filter features with elegant UI.</p>
+  <section>
+    <h2>🧠 Skills</h2>
+    <div class="section-card">
+      <ul>
+        <li><strong>Languages:</strong> Swift, SwiftUI, UIKit, Java, HTML, CSS, JS</li>
+        <li><strong>Frameworks:</strong> Combine, CoreData, CloudKit, VisionKit</li>
+        <li><strong>Tools:</strong> Xcode, Git, Figma, Lottie, Firebase (basics)</li>
+      </ul>
     </div>
+  </section>
 
-    <div class="project">
-      <h3>Weatherly – Minimal Weather App</h3>
-      <a href="https://github.com/krishaygahlaut/Weatherly" target="_blank">GitHub ↗</a>
-      <p>Animated Apple-style design with GPS support, weather icons, and dynamic backgrounds.</p>
-    </div>
-
-    <div class="project">
-      <h3>TripiFy – Smart Travel Planner</h3>
-      <a href="https://github.com/krishaygahlaut/TripiFy" target="_blank">GitHub ↗</a>
-      <p>Custom itinerary planner with location-based suggestions and integrated Apple Maps.</p>
+  <section>
+    <h2>🏆 Achievements</h2>
+    <div class="section-card">
+      <ul>
+        <li>🚀 Built 4+ launch-ready Swift-based apps (BillBuster, FitFuel, etc.)</li>
+        <li>📸 Used VisionKit OCR with >95% accuracy for receipt scanning</li>
+        <li>📊 Implemented analytics & charts across multiple SwiftUI apps</li>
+        <li>📬 Apps downloaded/tested by 300+ users on GitHub</li>
+      </ul>
     </div>
   </section>
 
   <footer>
-    © 2025 Krishay Gahlaut · Crafted with ❤️ & Swift
+    Made with ❤️ by Krishay Gahlaut · iOS Developer · 2025
   </footer>
 
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: true, zIndex: -1 },
+      particles: {
+        number: { value: 60 },
+        size: { value: 2 },
+        color: { value: "#00ffff" },
+        links: {
+          enable: true,
+          distance: 130,
+          color: "#00ffff",
+          opacity: 0.4
+        },
+        move: { enable: true, speed: 1 }
+      },
+      background: {
+        color: "#0f2027"
+      }
+    });
+  </script>
 </body>
 </html>
