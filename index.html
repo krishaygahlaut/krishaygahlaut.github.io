@@ -4,91 +4,256 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishay Gahlaut | iOS Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f2027;
+      color: #f1f1f1;
       line-height: 1.6;
       padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    header { text-align: center; margin-bottom: 3rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; }
-    h2 { font-size: 1.5rem; color: #7dd3fc; margin-top: 3rem; }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
 
-    .project {
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: #1e293b;
       padding: 1rem;
       border-radius: 10px;
-      margin-bottom: 1rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: #f8fafc;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      color: #00ffff;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    li {
+      margin: 0.8rem 0;
+    }
+
+    .project {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
       transition: transform 0.2s ease;
     }
+
     .project:hover {
-      transform: scale(1.02);
-      background-color: #334155;
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 1rem;
+    }
+
+    .skill {
+      text-align: center;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: conic-gradient(#00ffff 0% 0%, #1e293b 0% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .circle::after {
+      content: attr(data-percent) "%";
+      position: absolute;
+      color: white;
+      font-size: 1rem;
     }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 3rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: #999;
     }
 
     #tsparticles {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
+      h1 {
+        font-size: 2rem;
+      }
+
+      .project {
+        padding: 0.8rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Particles -->
   <div id="tsparticles"></div>
 
+  <!-- Header/Nav -->
   <header>
-    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>iOS Developer · Swift Enthusiast · CS Student</p>
-    <p>
-      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a> ·
-      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank">LinkedIn</a>
-    </p>
+    <nav>
+      <div class="logo">Krishay</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="menu">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section>
-    <h2>🚀 Projects</h2>
-    <div class="project">
-      <strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a>
-    </div>
-    <div class="project">
-      <strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a>
-    </div>
-    <div class="project">
-      <strong>Weatherly</strong> – Animated Apple-style weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a>
-    </div>
-    <div class="project">
-      <strong>TripiFy</strong> – Travel planner with itinerary and map support · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a>
+  <!-- Intro -->
+  <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+  <p style="text-align:center;">iOS Developer · Swift Enthusiast · CS Student</p>
+  <p style="text-align:center;">
+    <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+    <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+  </p>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>📱 Projects</h2>
+    <ul>
+      <li class="project"><strong>BillBuster</strong> – Group expense splitter with UPI, OCR & reminders · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
+      <li class="project"><strong>FitFuel</strong> – AI-based meal tracker with analytics, dark mode · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
+      <li class="project"><strong>Weatherly</strong> – Apple-style animated weather app · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
+      <li class="project"><strong>TripiFy</strong> – Smart travel planner with itinerary & maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>📊 Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><div class="circle" data-percent="90"></div><p>SwiftUI</p></div>
+      <div class="skill"><div class="circle" data-percent="85"></div><p>Swift</p></div>
+      <div class="skill"><div class="circle" data-percent="75"></div><p>Java</p></div>
+      <div class="skill"><div class="circle" data-percent="80"></div><p>HTML/CSS</p></div>
+      <div class="skill"><div class="circle" data-percent="70"></div><p>JavaScript</p></div>
     </div>
   </section>
 
-  <footer>
-    Portfolio © 2025 · Built by Krishay Gahlaut
+  <!-- About -->
+  <section id="about">
+    <h2>🎓 About Me</h2>
+    <p>B.Tech in Computer Science (2023–2027) @ SRM Institute, Chennai</p>
+    <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps</p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    Made with ❤️ by Krishay Gahlaut · FitFuel & BillBuster Author · 2025
   </footer>
 
+  <!-- JS Scripts -->
   <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    document.querySelectorAll('.circle').forEach(circle => {
+      let percent = circle.getAttribute('data-percent');
+      circle.style.background = `conic-gradient(#00ffff 0% ${percent}%, #1e293b ${percent}% 100%)`;
+    });
+
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true, zIndex: -1 },
       particles: {
@@ -103,7 +268,7 @@
         },
         move: { enable: true, speed: 1 }
       },
-      background: { color: "#0f172a" }
+      background: { color: "#0f2027" }
     });
   </script>
 </body>
