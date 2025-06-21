@@ -5,60 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishay Gahlaut | Portfolio</title>
   <link rel="stylesheet" href="global.css">
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
+
+  <!-- Navigation Bar -->
   <nav class="navbar">
-    <div class="logo">Krishay.dev</div>
-    <ul class="nav-links">
+    <div class="logo">Krishay</div>
+    <button id="nav-toggle">☰</button>
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="skills.html">Skills</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=sharing" target="_blank">Resume</a></li>
-      <li><button id="themeToggle">🌗</button></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif" target="_blank">Resume</a></li>
+      <li><button id="theme-toggle">🌗</button></li>
     </ul>
   </nav>
 
+  <!-- Hero Section -->
   <header class="hero" data-aos="fade-up">
     <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>iOS & Web Developer | Swift Enthusiast | CS Student</p>
+    <p>iOS & Web Developer · Swift Enthusiast · CS Undergrad</p>
+    <div class="links">
+      <a href="mailto:krishaygahlaut@icloud.com">Email</a>
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank">LinkedIn</a>
+    </div>
   </header>
 
-  <section class="projects" data-aos="fade-up">
-    <h2>📱 Projects</h2>
+  <!-- Project Highlights -->
+  <section class="projects-preview">
+    <h2 data-aos="fade-up">📱 Featured Projects</h2>
     <div class="project-grid">
-      <div class="project-card">
+      <div class="project-card" data-aos="fade-up">
         <h3>BillBuster</h3>
-        <p>Group expense splitter with UPI, OCR & PDF export.</p>
-        <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a>
+        <p>Smart bill splitter with UPI, OCR, and PDF export.</p>
+        <a href="https://github.com/krishaygahlaut/BillBuster" target="_blank">GitHub →</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
         <h3>FitFuel</h3>
-        <p>AI-powered meal tracker with analytics and reminders.</p>
-        <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a>
+        <p>AI meal tracker with reminders, iCloud sync, and analytics.</p>
+        <a href="https://github.com/krishaygahlaut/FitFuel" target="_blank">GitHub →</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
         <h3>Weatherly</h3>
-        <p>Animated Apple-style weather application with GPS.</p>
-        <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a>
+        <p>Apple-style animated weather UI with GPS and forecast API.</p>
+        <a href="https://github.com/krishaygahlaut/Weatherly" target="_blank">GitHub →</a>
       </div>
-      <div class="project-card">
-        <h3>TripiFy</h3>
-        <p>Smart travel planner with itinerary saving and maps.</p>
-        <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a>
-      </div>
+    </div>
+    <div class="view-more" data-aos="fade-up">
+      <a href="projects.html">View All Projects →</a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Krishay Gahlaut · All rights reserved</p>
+    <p>🚀 Built by Krishay Gahlaut · &copy; 2025</p>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
