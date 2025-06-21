@@ -4,24 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishay Gahlaut | Portfolio</title>
+
+  <!-- Fonts & Libraries -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+
   <style>
     :root {
       --bg: #ffffff;
       --text: #111;
       --primary: #007aff;
-      --card: #f5f5f5;
+      --card: rgba(255, 255, 255, 0.85);
     }
     body.dark {
       --bg: #111;
       --text: #f1f1f1;
       --primary: #00ffff;
-      --card: #1e1e1e;
+      --card: rgba(30, 30, 30, 0.9);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -30,13 +35,30 @@
       scroll-behavior: smooth;
     }
 
+    .gradient-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #60a5fa);
+      background-size: 800% 800%;
+      animation: gradientShift 18s ease infinite;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       background: var(--bg);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       padding: 1rem 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,12 +67,12 @@
 
     nav .logo {
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
 
     nav ul {
-      display: flex;
       list-style: none;
+      display: flex;
       gap: 1rem;
     }
 
@@ -82,7 +104,6 @@
 
     header p {
       font-size: 1.1rem;
-      margin-top: 0.5rem;
       color: var(--primary);
     }
 
@@ -98,18 +119,12 @@
       margin-bottom: 2rem;
     }
 
-    .project, .about-box, form {
+    .card, form {
       background: var(--card);
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       margin-bottom: 2rem;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .chart-container {
@@ -117,11 +132,21 @@
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      margin-top: 2rem;
     }
 
     .chart-box {
       text-align: center;
+      max-width: 200px;
+    }
+
+    .chart-box p {
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .chart-box small {
+      font-size: 0.85rem;
+      color: #666;
     }
 
     form {
@@ -135,7 +160,6 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
-      font-family: inherit;
     }
 
     input:focus, textarea:focus {
@@ -161,6 +185,11 @@
       color: #777;
     }
 
+    footer .socials img {
+      margin: 0 10px;
+      filter: invert(60%);
+    }
+
     @media (max-width: 768px) {
       nav ul { display: none; }
       header h1 { font-size: 2.2rem; }
@@ -170,55 +199,82 @@
 </head>
 <body>
 
+  <div class="gradient-bg"></div>
+
+  <!-- NAVBAR -->
   <nav>
     <div class="logo">Krishay</div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif" target="_blank">Resume</a></li>
     </ul>
     <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
   </nav>
 
+  <!-- HEADER -->
   <header>
     <h1>👋 I'm Krishay Gahlaut</h1>
     <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
   </header>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section id="about">
     <h2>👨‍💻 About Me</h2>
-    <div class="about-box" data-sr>
-      I'm a 3rd year Computer Science student at SRM Institute of Science and Technology, passionate about building modern, launch-ready iOS and web applications. With hands-on experience in SwiftUI, Java, HTML/CSS, and JavaScript, I’ve developed production-grade apps like <strong>BillBuster</strong> and <strong>FitFuel</strong> that incorporate OCR, UPI integration, AI features, and clean UI/UX design. I also contribute to open-source and actively learn new technologies. I’m now looking for an internship to apply my skills in a professional environment and grow with a visionary tech team.
+    <div class="card" data-sr>
+      I’m a 3rd-year Computer Science student at SRM Institute, Chennai, passionate about building high-quality iOS/macOS apps using SwiftUI and responsive web apps with HTML/CSS. I've launched multiple real-world apps like BillBuster and FitFuel, and I'm eager to join teams where I can contribute, learn, and grow. Let's build something great together!
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <h2>📱 Projects</h2>
-    <div class="project" data-sr><strong>BillBuster</strong> — Smart bill splitter with UPI, OCR & reminders. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-    <div class="project" data-sr><strong>FitFuel</strong> — AI-powered meal logger with reminders. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-    <div class="project" data-sr><strong>Weatherly</strong> — Apple-style animated weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-    <div class="project" data-sr><strong>TripiFy</strong> — Travel planner with maps & itinerary. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
+    <div class="card" data-sr><strong>BillBuster</strong> – UPI & OCR based expense splitter. <a href="https://github.com/krishaygahlaut/BillBuster" target="_blank">GitHub</a></div>
+    <div class="card" data-sr><strong>FitFuel</strong> – AI meal tracker with iCloud & analytics. <a href="https://github.com/krishaygahlaut/FitFuel" target="_blank">GitHub</a></div>
+    <div class="card" data-sr><strong>Weatherly</strong> – Apple-style animated weather app. <a href="https://github.com/krishaygahlaut/Weatherly" target="_blank">GitHub</a></div>
+    <div class="card" data-sr><strong>TripiFy</strong> – Smart travel planner with map itinerary. <a href="https://github.com/krishaygahlaut/TripiFy" target="_blank">GitHub</a></div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <h2>🧠 Skills</h2>
     <div class="chart-container">
-      <div class="chart-box"><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
-      <div class="chart-box"><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
-      <div class="chart-box"><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
-      <div class="chart-box"><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
+      <div class="chart-box">
+        <canvas id="swiftChart" width="100" height="100"></canvas>
+        <p>Swift</p><small>UIKit · CoreData · API</small>
+      </div>
+      <div class="chart-box">
+        <canvas id="swiftuiChart" width="100" height="100"></canvas>
+        <p>SwiftUI</p><small>Modern UI · Apple Platforms</small>
+      </div>
+      <div class="chart-box">
+        <canvas id="htmlChart" width="100" height="100"></canvas>
+        <p>HTML/CSS</p><small>Web Layouts · Flex · Animations</small>
+      </div>
+      <div class="chart-box">
+        <canvas id="javaChart" width="100" height="100"></canvas>
+        <p>Java</p><small>OOP · DSA · Backend</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>🎓 Education</h2>
+    <div class="card" data-sr>
+      <strong>B.Tech in Computer Science</strong><br>
+      SRM Institute of Science & Technology, Chennai (2023–2027)<br>
+      CGPA: 8.3
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <h2>📬 Contact Me</h2>
-    <form action="https://formspree.io/f/myzjdbwd" method="POST">
+    <form action="https://formspree.io/f/myzjdbwd" method="POST" data-sr>
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -226,13 +282,20 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
+    <div class="socials">
+      <a href="https://github.com/krishaygahlaut" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" width="24" /></a>
+      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" width="24" /></a>
+      <a href="mailto:krishaygahlaut@icloud.com"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mail-dot-ru.svg" width="24" /></a>
+    </div>
     🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
 
+  <!-- JS Scripts -->
   <script>
     ScrollReveal().reveal('[data-sr]', {
-      distance: '30px',
+      distance: '40px',
       duration: 700,
       origin: 'bottom',
       interval: 200
@@ -242,19 +305,22 @@
       document.body.classList.toggle('dark');
     }
 
-    function createChart(id, percent) {
+    function createChart(id, value) {
       new Chart(document.getElementById(id), {
         type: 'doughnut',
         data: {
           datasets: [{
-            data: [percent, 100 - percent],
+            data: [value, 100 - value],
             backgroundColor: [getComputedStyle(document.body).getPropertyValue('--primary'), '#ccc'],
             borderWidth: 0
           }]
         },
         options: {
           cutout: '70%',
-          plugins: { legend: { display: false }, tooltip: { enabled: false } }
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: false }
+          }
         }
       });
     }
@@ -264,5 +330,6 @@
     createChart('htmlChart', 80);
     createChart('javaChart', 75);
   </script>
+
 </body>
 </html>
