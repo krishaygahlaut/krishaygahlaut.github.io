@@ -6,6 +6,7 @@
   <title>Krishay Gahlaut | iOS Developer</title>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
+    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -14,40 +15,44 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f2027;
-      color: #f1f1f1;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
       padding: 2rem;
       position: relative;
       z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    :root {
+      --bg-color: #0f2027;
+      --text-color: #f1f1f1;
+      --accent-color: #00ffff;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --accent-color: #006aff;
     }
 
     a {
-      color: #00ffff;
+      color: var(--accent-color);
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      margin-bottom: 2.5rem;
+    header, footer {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #1e293b;
+      background: rgba(255,255,255,0.05);
       padding: 1rem;
       border-radius: 10px;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #00ffff;
     }
 
     .nav-links {
@@ -56,103 +61,65 @@
       gap: 20px;
     }
 
-    .nav-links li a {
-      color: #f8fafc;
-    }
-
     .hamburger {
       display: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #00ffff;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
+    .toggle-theme {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--accent-color);
+      font-size: 1.2rem;
     }
 
     h1 {
       font-size: 2.5rem;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
 
     h2 {
-      font-size: 1.6rem;
+      color: var(--accent-color);
       margin-top: 2rem;
-      color: #00ffff;
+      font-size: 1.6rem;
     }
 
-    ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    li {
-      margin: 0.8rem 0;
-    }
-
-    .project {
+    .project, .achievement {
       background: rgba(255, 255, 255, 0.05);
       padding: 1rem;
       border-radius: 12px;
-      transition: transform 0.2s ease;
-    }
-
-    .project:hover {
-      transform: scale(1.03);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
       margin-top: 1rem;
     }
 
-    .skill {
-      text-align: center;
+    .skills-grid, .achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 1rem;
     }
 
     .circle {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: conic-gradient(#00ffff 0% 0%, #1e293b 0% 100%);
+      background: conic-gradient(var(--accent-color) 0% 0%, #1e293b 0% 100%);
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       font-weight: bold;
       font-size: 1rem;
-      margin-bottom: 0.5rem;
       position: relative;
     }
 
     .circle::after {
       content: attr(data-percent) "%";
       position: absolute;
-      color: white;
-      font-size: 1rem;
+      color: var(--text-color);
     }
 
     footer {
-      margin-top: 3rem;
-      text-align: center;
       font-size: 0.9rem;
       color: #999;
     }
@@ -165,93 +132,85 @@
       top: 0;
       left: 0;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .project {
-        padding: 0.8rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Background Particles -->
   <div id="tsparticles"></div>
 
-  <!-- Header/Nav -->
   <header>
     <nav>
-      <div class="logo">Krishay</div>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <ul class="nav-links" id="menu">
+      <strong>Krishay</strong>
+      <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#footer">Contact</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#resume">Resume</a></li>
       </ul>
+      <button class="toggle-theme" onclick="toggleTheme()">🌗</button>
     </nav>
   </header>
 
-  <!-- Intro -->
-  <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-  <p style="text-align:center;">iOS Developer · Swift Enthusiast · CS Student</p>
-  <p style="text-align:center;">
-    <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-    <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
-  </p>
+  <main>
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p style="text-align:center">iOS Developer · Swift Enthusiast · CS Student</p>
+    <p style="text-align:center">
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+      <a href="https://github.com/krishaygahlaut">GitHub</a>
+    </p>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>📱 Projects</h2>
-    <ul>
-      <li class="project"><strong>BillBuster</strong> – Group expense splitter with UPI, OCR & reminders · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
-      <li class="project"><strong>FitFuel</strong> – AI-based meal tracker with analytics, dark mode · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
-      <li class="project"><strong>Weatherly</strong> – Apple-style animated weather app · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
-      <li class="project"><strong>TripiFy</strong> – Smart travel planner with itinerary & maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
-    </ul>
-  </section>
+    <section id="projects">
+      <h2>📱 Projects</h2>
+      <div class="project"><strong>BillBuster</strong> – Group expense splitter with UPI, OCR & reminders · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
+      <div class="project"><strong>FitFuel</strong> – AI-based meal tracker with analytics, dark mode · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
+      <div class="project"><strong>Weatherly</strong> – Apple-style animated weather app · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
+      <div class="project"><strong>TripiFy</strong> – Smart travel planner with itinerary & maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>📊 Skills</h2>
-    <div class="skills-grid">
-      <div class="skill"><div class="circle" data-percent="90"></div><p>SwiftUI</p></div>
-      <div class="skill"><div class="circle" data-percent="85"></div><p>Swift</p></div>
-      <div class="skill"><div class="circle" data-percent="75"></div><p>Java</p></div>
-      <div class="skill"><div class="circle" data-percent="80"></div><p>HTML/CSS</p></div>
-      <div class="skill"><div class="circle" data-percent="70"></div><p>JavaScript</p></div>
-    </div>
-  </section>
+    <section id="skills">
+      <h2>📊 Skills</h2>
+      <div class="skills-grid">
+        <div class="circle" data-percent="90"></div><p>SwiftUI</p>
+        <div class="circle" data-percent="85"></div><p>Swift</p>
+        <div class="circle" data-percent="75"></div><p>Java</p>
+        <div class="circle" data-percent="80"></div><p>HTML/CSS</p>
+        <div class="circle" data-percent="70"></div><p>JavaScript</p>
+      </div>
+    </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2>🎓 About Me</h2>
-    <p>B.Tech in Computer Science (2023–2027) @ SRM Institute, Chennai</p>
-    <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps</p>
-  </section>
+    <section id="achievements">
+      <h2>🏆 Achievements</h2>
+      <div class="achievements">
+        <div class="achievement">Built 4+ launch-ready iOS/macOS apps</div>
+        <div class="achievement">Integrated OCR & VisionKit for 95% accuracy</div>
+        <div class="achievement">Developed expense logic reducing split time by 80%</div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer id="footer">
-    Made with ❤️ by Krishay Gahlaut · FitFuel & BillBuster Author · 2025
+    <section id="about">
+      <h2>🎓 About Me</h2>
+      <p>B.Tech in Computer Science (2023–2027) @ SRM Institute, Chennai</p>
+      <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps</p>
+    </section>
+
+    <section id="resume">
+      <h2>📄 Resume</h2>
+      <p><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif" target="_blank">View My Resume</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footer">Made with ❤️ by Krishay Gahlaut · 2025</p>
   </footer>
 
-  <!-- JS Scripts -->
   <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
+    function toggleTheme() {
+      document.body.classList.toggle('light');
     }
 
     document.querySelectorAll('.circle').forEach(circle => {
-      let percent = circle.getAttribute('data-percent');
-      circle.style.background = `conic-gradient(#00ffff 0% ${percent}%, #1e293b ${percent}% 100%)`;
+      const percent = circle.getAttribute('data-percent');
+      circle.style.background = `conic-gradient(var(--accent-color) 0% ${percent}%, #1e293b ${percent}% 100%)`;
     });
 
     tsParticles.load("tsparticles", {
