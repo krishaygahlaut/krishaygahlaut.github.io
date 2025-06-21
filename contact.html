@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Krishay Gahlaut</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #111;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .toggle {
+      position: fixed;
+      right: 1rem;
+      top: 1rem;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    section {
+      padding: 6rem 2rem 4rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #007aff;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    button {
+      background: #007aff;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background: #005edb;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f1f1f1;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #111;
+      color: #f1f1f1;
+    }
+    .dark-mode nav {
+      background: #1a1a1a;
+    }
+    .dark-mode nav ul li a {
+      color: #eee;
+    }
+    .dark-mode input,
+    .dark-mode textarea {
+      background: #1e1e1e;
+      color: #f1f1f1;
+      border: 1px solid #444;
+    }
+    .dark-mode footer {
+      background: #1a1a1a;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+  <nav>
+    <div class="logo">Krishay</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=drivesdk" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>💌 Get in Touch</h2>
+    <form action="https://formspree.io/f/myzjdbwd" method="POST" data-sr>
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    🚀 Contact | Krishay Gahlaut · 2025
+  </footer>
+
+  <script>
+    const toggleTheme = () => {
+      document.body.classList.toggle('dark-mode');
+    };
+
+    ScrollReveal().reveal('[data-sr]', {
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom'
+    });
+  </script>
+</body>
+</html>

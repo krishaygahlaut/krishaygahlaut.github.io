@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Krishay Gahlaut</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #111;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .toggle {
+      position: fixed;
+      right: 1rem;
+      top: 1rem;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    .dark-mode {
+      background: #111;
+      color: #f1f1f1;
+    }
+    .dark-mode nav {
+      background: #1a1a1a;
+    }
+    .dark-mode nav ul li a {
+      color: #eee;
+    }
+    .section {
+      padding: 6rem 2rem 4rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #007aff;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .dark-mode p {
+      color: #ccc;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f1f1f1;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .dark-mode footer {
+      background: #1a1a1a;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
+  <nav>
+    <div class="logo">Krishay</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="KRISHAYRESUME.pdf" download>Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="section" data-sr>
+    <h1>👨‍💻 About Me</h1>
+    <p>I'm <strong>Krishay Gahlaut</strong>, an aspiring software developer with a strong passion for building beautiful, performant, and useful applications for iOS and the web.</p>
+    <p>I specialize in <strong>Swift, SwiftUI</strong>, and front-end development with <strong>HTML, CSS, and JavaScript</strong>. I’ve created multiple launch-ready apps and enjoy turning ideas into clean, functional products.</p>
+    <p>Currently pursuing B.Tech in Computer Science at SRM Institute of Science & Technology (2023–2027), with a CGPA of 8.3 (3rd year).</p>
+    <p>Always excited to learn and contribute to impactful tech projects.</p>
+  </div>
+
+  <footer>
+    🚀 Portfolio by Krishay Gahlaut · 2025
+  </footer>
+
+  <script>
+    ScrollReveal().reveal('[data-sr]', {
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 200
+    });
+    const toggleTheme = () => {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
