@@ -1,20 +1,37 @@
-// Toggle dark mode
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
+// theme toggle
+const toggle = document.querySelector('#theme-toggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+
+// load saved theme
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
   }
-  
-  // ScrollReveal animations
-  ScrollReveal().reveal('section', {
-    distance: '50px',
-    duration: 800,
-    easing: 'ease-out',
-    origin: 'bottom',
-    interval: 200
-  });
-  
-  // Skills charts
-  function createChart(id, value) {
-    if (!document.getElementById(id)) return;
+  AOS.init({ duration: 800, once: true });
+});
+
+// mobile nav toggle
+const navToggle = document.querySelector('#nav-toggle');
+const navMenu = document.querySelector('#nav-menu');
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+});
+
+// pie chart setup (used in skills.html)
+if (document.querySelector('.chart')) {
+  const charts = [
+    { id: 'swiftChart', value: 90 },
+    { id: 'swiftuiChart', value: 85 },
+    { id: 'htmlChart', value: 90 },
+    { id: 'cssChart', value: 85 },
+    { id: 'jsChart', value: 80 },
+    { id: 'javaChart', value: 75 },
+  ];
+
+  charts.forEach(({ id, value }) => {
     new Chart(document.getElementById(id), {
       type: 'doughnut',
       data: {
@@ -32,9 +49,5 @@ function toggleTheme() {
         }
       }
     });
-  }
-  
-  createChart('swiftChart', 90);
-  createChart('swiftuiChart', 85);
-  createChart('htmlChart', 80);
-  createChart('javaChart', 75);
+  });
+}
