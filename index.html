@@ -2,229 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishay Gahlaut | iOS & Web Developer</title>
-
-  <!-- Chart.js for skills -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- tsParticles for background animation -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <!-- Lottie -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishay Gahlaut | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    :root {
+      --bg-dark: #0a0a0a;
+      --text-light: #f5f5f5;
+      --accent: #00ffff;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f2027;
-      color: #f1f1f1;
-      padding-top: 80px;
-      line-height: 1.6;
-      position: relative;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
     }
-    #tsparticles {
+    header {
+      padding: 6vh 8vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: fixed;
-      z-index: 0;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
+      width: 100%;
+      top: 0;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 10;
     }
-    header, section, footer {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
+    .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--accent);
     }
-    h1 { font-size: 2.6rem; font-weight: bold; }
-    h2 { font-size: 1.8rem; color: #00ffff; margin-top: 3rem; margin-bottom: 1rem; }
-    a { color: #00ffff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .navbar {
-      position: fixed; top: 0; width: 100%; z-index: 999;
-      background: rgba(0, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem;
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.95rem;
     }
-    .logo { font-weight: bold; font-size: 1.3rem; }
-    .nav-links {
-      list-style: none;
+    section.hero {
+      height: 100vh;
       display: flex;
-      gap: 1rem;
-    }
-    .nav-links a, .nav-links button {
-      background: none;
-      border: none;
-      font: inherit;
-      color: #00ffff;
-      cursor: pointer;
-    }
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: #00ffff;
-      cursor: pointer;
-    }
-    .project, .section-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 12px;
-      margin-top: 1rem;
-      transition: 0.2s ease;
-    }
-    .project:hover, .section-box:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .skills-chart-container {
-      display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .skills-chart-container div {
+      flex-direction: column;
       text-align: center;
+      padding: 0 2rem;
     }
-    .skills-chart-container p {
-      margin-top: 0.5rem;
-      font-weight: bold;
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
     }
-    .social-icons {
+    .hero p {
+      font-size: 1.2rem;
       margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
+      color: #aaa;
     }
-    .social-icons a {
-      color: #00ffff;
-      font-size: 1.5rem;
+    .hero .buttons {
+      margin-top: 2rem;
     }
-    #lottie-container {
-      width: 80px;
-      margin: auto;
+    .hero .buttons a {
+      padding: 0.8rem 1.6rem;
+      background: var(--accent);
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .hero .buttons a:hover {
+      background: #00dddd;
     }
     footer {
+      padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #999;
-      padding: 2rem;
+      color: #666;
     }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        right: 20px;
-        top: 60px;
-        flex-direction: column;
-        background: rgba(0, 255, 255, 0.1);
-        padding: 1rem;
-        border-radius: 8px;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .nav-toggle {
-        display: block;
-      }
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.4rem; }
-    }
-    body.light {
-      background: #ffffff;
-      color: #000000;
-    }
-    body.light a { color: #0077ff; }
-    body.light .project, body.light .section-box {
-      background: rgba(0, 0, 0, 0.05);
-    }
-    body.light .navbar {
-      background: rgba(0, 0, 0, 0.06);
+      .hero h1 { font-size: 2.2rem; }
+      nav a { font-size: 0.8rem; margin-left: 1rem; }
     }
   </style>
 </head>
-<body class="dark">
-  <div id="tsparticles"></div>
-
-  <nav class="navbar">
-    <div class="logo">Krishay Gahlaut</div>
-    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="KRISHAYRESUME.pdf" download>📄 Resume</a></li>
-      <li><button onclick="toggleTheme()">🌗</button></li>
-    </ul>
-  </nav>
-
-  <header id="about">
-    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
-    <p>
-      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
-    </p>
-    <div class="social-icons">
-      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/krishaygahlaut" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com/krishaygahlaut" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
+<body>
+  <header>
+    <div class="logo">Krishay.dev</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <div id="lottie-container"></div>
-
-  <!-- [Your existing projects, skills, education, achievements here] -->
-
-  <section id="contact">
-    <h2>📩 Contact Me</h2>
-    <form action="https://formspree.io/f/myzjdbwd" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required><br><br>
-      <input type="email" name="email" placeholder="Your Email" required><br><br>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br><br>
-      <button type="submit">Send</button>
-    </form>
+  <section class="hero">
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p>Crafting beautiful iOS and web experiences with Swift & HTML/CSS</p>
+    <div class="buttons">
+      <a href="#projects">See My Work</a>
+      <a href="KRISHAYRESUME.pdf" download>📄 Resume</a>
+    </div>
   </section>
 
   <footer>
-    🚀 Portfolio by Krishay Gahlaut · 2025
+    &copy; 2025 Krishay Gahlaut. Built with ❤️ & clean code.
   </footer>
-
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: 0 },
-      particles: {
-        number: { value: 60 },
-        size: { value: 2 },
-        color: { value: "#00ffff" },
-        links: { enable: true, distance: 130, color: "#00ffff", opacity: 0.4 },
-        move: { enable: true, speed: 1 }
-      },
-      background: { color: "#0f2027" }
-    });
-  </script>
-  <script>
-    const container = document.getElementById("lottie-container");
-    lottie.loadAnimation({
-      container: container,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets3.lottiefiles.com/packages/lf20_tpa51dr0.json'
-    });
-  </script>
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-      document.body.classList.toggle("light");
-    }
-  </script>
 </body>
 </html>
