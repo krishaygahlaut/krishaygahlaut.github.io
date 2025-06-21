@@ -5,29 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishay Gahlaut | Portfolio</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #fdfdfd;
+      background-color: #ffffff;
       color: #111;
       line-height: 1.6;
       scroll-behavior: smooth;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #007aff;
+    }
+    .theme-toggle {
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
     }
     header {
       text-align: center;
@@ -42,35 +67,9 @@
       color: #666;
       margin-top: 0.5rem;
     }
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #fff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transition: background 0.3s ease;
-    }
-    nav .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
     section {
       padding: 4rem 2rem;
-      max-width: 1000px;
+      max-width: 960px;
       margin: auto;
     }
     h2 {
@@ -84,20 +83,11 @@
       padding: 1.5rem;
       margin-bottom: 2rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
     .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .chart-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .chart-box {
-      text-align: center;
     }
     footer {
       text-align: center;
@@ -106,112 +96,69 @@
       color: #555;
       font-size: 0.9rem;
     }
-    .toggle {
-      position: fixed;
-      right: 1rem;
-      top: 1rem;
-      background: #111;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 20px;
-      z-index: 1001;
-    }
     .dark-mode {
-      background: #111;
+      background: #0d1117;
       color: #f1f1f1;
     }
     .dark-mode nav {
-      background: #1a1a1a;
+      background: #161b22;
     }
     .dark-mode nav ul li a {
-      color: #eee;
+      color: #ddd;
     }
     .dark-mode .project {
       background: #1e1e1e;
     }
     .dark-mode footer {
-      background: #1a1a1a;
+      background: #161b22;
       color: #aaa;
     }
   </style>
 </head>
 <body>
-  <button class="toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
   <nav>
     <div class="logo">Krishay</div>
     <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=drivesdk&ouid=118224358629078107279&rtpof=true&sd=true" target="_blank">Resume</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit" target="_blank">Resume</a></li>
     </ul>
+    <button class="theme-toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
   </nav>
 
   <header>
-    <h1>👋 I'm Krishay Gahlaut</h1>
-    <p>iOS & Web Developer · Swift Enthusiast · Student</p>
+    <h1 data-aos="fade-up">👋 I'm Krishay Gahlaut</h1>
+    <p data-aos="fade-up" data-aos-delay="200">iOS & Web Developer · Swift Enthusiast · Student</p>
   </header>
 
   <section id="projects">
-    <h2>📱 Projects</h2>
-    <div class="project" data-sr><strong>BillBuster</strong> — Expense splitter with UPI, OCR, PDF export. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-    <div class="project" data-sr><strong>FitFuel</strong> — AI meal logger with reminders & analytics. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-    <div class="project" data-sr><strong>Weatherly</strong> — Animated iOS-style weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-    <div class="project" data-sr><strong>TripiFy</strong> — Smart travel planner with maps & itinerary. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
-  </section>
-
-  <section id="skills">
-    <h2>🧠 Skills</h2>
-    <div class="chart-container">
-      <div class="chart-box"><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
-      <div class="chart-box"><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
-      <div class="chart-box"><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
-      <div class="chart-box"><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
-    </div>
+    <h2 data-aos="fade-right">📱 Projects</h2>
+    <div class="project" data-aos="fade-up"><strong>BillBuster</strong> — UPI, OCR, PDF export. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
+    <div class="project" data-aos="fade-up"><strong>FitFuel</strong> — AI meal logger + analytics. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
+    <div class="project" data-aos="fade-up"><strong>Weatherly</strong> — Animated weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
+    <div class="project" data-aos="fade-up"><strong>TripiFy</strong> — Smart travel planner. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
   </section>
 
   <footer>
     🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    const toggleTheme = () => {
-      document.body.classList.toggle('dark-mode');
-    }
+    AOS.init();
+    const toggleTheme = () => document.body.classList.toggle('dark-mode');
+  </script>
 
-    ScrollReveal().reveal('[data-sr]', {
-      distance: '50px',
-      duration: 800,
-      easing: 'ease-out',
-      origin: 'bottom',
-      interval: 200
-    });
-
-    const createChart = (id, value) => {
-      new Chart(document.getElementById(id), {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            data: [value, 100 - value],
-            backgroundColor: ['#007aff', '#e0e0e0'],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          cutout: '70%',
-          plugins: {
-            tooltip: { enabled: false },
-            legend: { display: false }
-          }
-        }
-      });
-    }
-
-    createChart('swiftChart', 90);
-    createChart('swiftuiChart', 85);
-    createChart('htmlChart', 80);
-    createChart('javaChart', 70);
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
   </script>
 </body>
 </html>
