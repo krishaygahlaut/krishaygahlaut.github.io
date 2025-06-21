@@ -9,11 +9,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- tsParticles for background animation -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <!-- Lottie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f2027;
@@ -22,51 +25,48 @@
       line-height: 1.6;
       position: relative;
     }
-
     #tsparticles {
       position: fixed;
       z-index: 0;
       width: 100%; height: 100%;
       top: 0; left: 0;
     }
-
     header, section, footer {
       position: relative;
       z-index: 2;
       padding: 2rem;
     }
-
     h1 { font-size: 2.6rem; font-weight: bold; }
     h2 { font-size: 1.8rem; color: #00ffff; margin-top: 3rem; margin-bottom: 1rem; }
-
     a { color: #00ffff; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .navbar {
-      position: fixed;
-      top: 0; width: 100%; z-index: 999;
+      position: fixed; top: 0; width: 100%; z-index: 999;
       background: rgba(0, 255, 255, 0.08);
       backdrop-filter: blur(8px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1rem 2rem;
     }
-
     .logo { font-weight: bold; font-size: 1.3rem; }
-    .nav-links { list-style: none; display: flex; gap: 1rem; }
-    .nav-links a, .nav-links button {
-      background: none; border: none; font: inherit;
-      color: #00ffff; cursor: pointer;
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
     }
-
+    .nav-links a, .nav-links button {
+      background: none;
+      border: none;
+      font: inherit;
+      color: #00ffff;
+      cursor: pointer;
+    }
     .nav-toggle {
       display: none;
       font-size: 1.5rem;
       color: #00ffff;
       cursor: pointer;
     }
-
     .project, .section-box {
       background: rgba(255, 255, 255, 0.05);
       padding: 1rem;
@@ -74,11 +74,9 @@
       margin-top: 1rem;
       transition: 0.2s ease;
     }
-
     .project:hover, .section-box:hover {
       background: rgba(255, 255, 255, 0.08);
     }
-
     .skills-chart-container {
       display: flex;
       flex-wrap: wrap;
@@ -86,48 +84,33 @@
       gap: 2rem;
       margin-top: 1.5rem;
     }
-
     .skills-chart-container div {
       text-align: center;
     }
-
     .skills-chart-container p {
       margin-top: 0.5rem;
       font-weight: bold;
     }
-
-    form {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-top: 2rem;
+    .social-icons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
     }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
+    .social-icons a {
+      color: #00ffff;
+      font-size: 1.5rem;
     }
-
-    button[type="submit"] {
-      background: #00ffff;
-      color: #000;
-      border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
+    #lottie-container {
+      width: 80px;
+      margin: auto;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: #999;
       padding: 2rem;
     }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -139,18 +122,26 @@
         padding: 1rem;
         border-radius: 8px;
       }
-      .nav-links.active { display: flex; }
-      .nav-toggle { display: block; }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
       h1 { font-size: 2rem; }
       h2 { font-size: 1.4rem; }
     }
-
-    body.light { background: #ffffff; color: #000000; }
+    body.light {
+      background: #ffffff;
+      color: #000000;
+    }
     body.light a { color: #0077ff; }
-    body.light .project, body.light .section-box, body.light form {
+    body.light .project, body.light .section-box {
       background: rgba(0, 0, 0, 0.05);
     }
-    body.light .navbar { background: rgba(0, 0, 0, 0.06); }
+    body.light .navbar {
+      background: rgba(0, 0, 0, 0.06);
+    }
   </style>
 </head>
 <body class="dark">
@@ -174,61 +165,34 @@
   <header id="about">
     <h1>👋 Hi, I'm Krishay Gahlaut</h1>
     <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
-    <p><a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> · <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a></p>
+    <p>
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/krishaygahlaut" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/krishaygahlaut" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>📱 Projects</h2>
-    <ul>
-      <li class="project"><strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
-      <li class="project"><strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
-      <li class="project"><strong>Weatherly</strong> – Apple-style animated weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
-      <li class="project"><strong>TripiFy</strong> – Travel planner with itinerary and maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
-    </ul>
-  </section>
+  <div id="lottie-container"></div>
 
-  <section id="skills">
-    <h2>🧠 Skills Overview</h2>
-    <p>Proficiency across mobile and web technologies:</p>
-    <div class="skills-chart-container">
-      <div><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
-      <div><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
-      <div><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
-      <div><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
-      <div><canvas id="jsChart" width="100" height="100"></canvas><p>JavaScript</p></div>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>🎓 Education</h2>
-    <div class="section-box">
-      B.Tech in Computer Science (2023–2027)<br>
-      SRM Institute of Science & Technology, Chennai<br>
-      3rd Year · CGPA: 8.3
-    </div>
-  </section>
-
-  <section id="achievements">
-    <h2>🏆 Achievements</h2>
-    <ul>
-      <li class="section-box">Built 4+ polished apps using SwiftUI, CoreData, CloudKit</li>
-      <li class="section-box">Used VisionKit OCR to achieve 95%+ receipt scan accuracy</li>
-      <li class="section-box">Reduced expense calculation time by 80% with smart logic</li>
-      <li class="section-box">Built and deployed this website using HTML, CSS, and JavaScript</li>
-    </ul>
-  </section>
+  <!-- [Your existing projects, skills, education, achievements here] -->
 
   <section id="contact">
-    <h2>📬 Contact Me</h2>
+    <h2>📩 Contact Me</h2>
     <form action="https://formspree.io/f/myzjdbwd" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" name="name" placeholder="Your Name" required><br><br>
+      <input type="email" name="email" placeholder="Your Email" required><br><br>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br><br>
+      <button type="submit">Send</button>
     </form>
   </section>
 
-  <footer>🚀 Portfolio by Krishay Gahlaut · 2025</footer>
+  <footer>
+    🚀 Portfolio by Krishay Gahlaut · 2025
+  </footer>
 
   <script>
     tsParticles.load("tsparticles", {
@@ -237,44 +201,26 @@
         number: { value: 60 },
         size: { value: 2 },
         color: { value: "#00ffff" },
-        links: {
-          enable: true,
-          distance: 130,
-          color: "#00ffff",
-          opacity: 0.4
-        },
+        links: { enable: true, distance: 130, color: "#00ffff", opacity: 0.4 },
         move: { enable: true, speed: 1 }
       },
       background: { color: "#0f2027" }
     });
-
-    function createPieChart(id, percent) {
-      new Chart(document.getElementById(id), {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            data: [percent, 100 - percent],
-            backgroundColor: ['#00ffff', '#1e2e3e'],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          cutout: '70%',
-          plugins: { tooltip: { enabled: false }, legend: { display: false } }
-        }
-      });
-    }
-
-    createPieChart('swiftChart', 90);
-    createPieChart('swiftuiChart', 85);
-    createPieChart('htmlChart', 80);
-    createPieChart('javaChart', 75);
-    createPieChart('jsChart', 70);
-
+  </script>
+  <script>
+    const container = document.getElementById("lottie-container");
+    lottie.loadAnimation({
+      container: container,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets3.lottiefiles.com/packages/lf20_tpa51dr0.json'
+    });
+  </script>
+  <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
-
     function toggleTheme() {
       document.body.classList.toggle("dark");
       document.body.classList.toggle("light");
