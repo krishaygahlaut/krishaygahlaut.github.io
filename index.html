@@ -6,47 +6,102 @@
   <title>Krishay Gahlaut | iOS Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #00ffff;
-      --accent: #ffb347;
-      --bg: #0e0e0e;
-      --text: #f0f0f0;
-      --muted: #aaaaaa;
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
+      background: #0b0c10;
+      color: #ffffff;
       padding: 2rem;
       line-height: 1.6;
     }
 
-    h1, h2 {
-      color: var(--primary);
-    }
-
-    a {
-      color: #00bfff;
-      text-decoration: none;
-    }
-
-    .section {
+    header {
+      text-align: center;
       margin-bottom: 3rem;
     }
 
-    .project {
-      margin-bottom: 1.2rem;
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00ffff;
+    }
+
+    p.sub {
+      color: #c5c6c7;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #66fcf1;
+      text-decoration: none;
+    }
+
+    .email-btn, .github-btn {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #66fcf1;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin: 0.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .email-btn:hover, .github-btn:hover {
+      background: #66fcf1;
+      color: #0b0c10;
+      transform: scale(1.05);
+    }
+
+    section {
+      margin-top: 3rem;
+      max-width: 768px;
+      margin-inline: auto;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #45a29e;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li strong {
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    li {
+      margin-bottom: 1.5rem;
     }
 
     .tag {
-      background: #222;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      margin-left: 0.3rem;
-      color: var(--accent);
+      background: #45a29e;
+      color: black;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -54,43 +109,47 @@
 
   <header>
     <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>iOS Developer · Swift Enthusiast · CS Student</p>
-    <p>
-      <a href="mailto:krishaygahlaut@icloud.com">📧 krishaygahlaut@icloud.com</a> ·
-      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
-    </p>
+    <p class="sub">iOS Developer · Swift Enthusiast · CS Student</p>
+    <a href="mailto:krishaygahlaut@icloud.com" class="email-btn">📧 Email</a>
+    <a href="https://github.com/krishaygahlaut" class="github-btn" target="_blank">🌐 GitHub</a>
   </header>
 
-  <section class="section">
+  <section>
     <h2>🚀 Projects</h2>
-
-    <div class="project">
-      <strong>BillBuster</strong>
-      <p>UPI integration, <strong>receipt scanning</strong>, PDF export, SMS reminders, contacts integration</p>
-    </div>
-
-    <div class="project">
-      <strong>FitFuel</strong>
-      <p>Meal tracking, analytics<span class="tag">Premium</span>, search/filter, dark mode, local/iCloud storage</p>
-    </div>
-
-    <div class="project">
-      <strong>Weatherly</strong>
-      <p>Apple-style UI with animated weather views, GPS support, and dynamic backgrounds</p>
-    </div>
-
-    <div class="project">
-      <strong>TripiFy</strong>
-      <p>SwiftUI-based trip manager with maps<span class="tag">Premium</span>, itinerary saving, and location-based suggestions</p>
-    </div>
+    <ul>
+      <li>
+        <strong>BillBuster</strong><br>
+        UPI integration, <b>receipt scanning</b>, PDF export, SMS reminders, contacts integration
+        <a href="https://github.com/krishaygahlaut/BillBuster" class="tag">GitHub</a>
+      </li>
+      <li>
+        <strong>FitFuel</strong><br>
+        Meal tracking, analytics, <span class="tag">Premium</span>, search/filter, dark mode, local/iCloud storage
+        <a href="https://github.com/krishaygahlaut/FitFuel" class="tag">GitHub</a>
+      </li>
+      <li>
+        <strong>Weatherly</strong><br>
+        Apple-style UI with animated weather views, GPS support, and dynamic backgrounds
+        <a href="https://github.com/krishaygahlaut/Weatherly" class="tag">GitHub</a>
+      </li>
+      <li>
+        <strong>TripiFy</strong><br>
+        SwiftUI-based trip manager with <span class="tag">Maps</span>, itinerary saving, and location-based suggestions
+        <a href="https://github.com/krishaygahlaut/TripiFy" class="tag">GitHub</a>
+      </li>
+    </ul>
   </section>
 
-  <section class="section">
+  <section>
     <h2>🎓 About Me</h2>
     <p><strong>B.Tech in Computer Science</strong> (2023–2027)</p>
-    <p>@ SRM Institute, Chennai</p>
-    <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps</p>
+    <p>📍 SRM Institute, Chennai</p>
+    <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps using Swift, SwiftUI, and AI</p>
   </section>
+
+  <footer>
+    🚀 Portfolio by Krishay Gahlaut · 2025
+  </footer>
 
 </body>
 </html>
