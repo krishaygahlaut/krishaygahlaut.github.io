@@ -4,168 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishay Gahlaut | iOS Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f2027;
-      color: #f1f1f1;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
       line-height: 1.6;
       padding: 2rem;
-      position: relative;
     }
+    a { color: #38bdf8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    main {
-      position: relative;
-      z-index: 1;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      color: #00ffff;
-    }
-
-    ul {
-      list-style: none;
-      margin-top: 1rem;
-      padding-left: 0;
-    }
-
-    li {
-      margin: 0.8rem 0;
-    }
+    header { text-align: center; margin-bottom: 3rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; }
+    h2 { font-size: 1.5rem; color: #7dd3fc; margin-top: 3rem; }
 
     .project {
-      background: rgba(255, 255, 255, 0.05);
+      background: #1e293b;
       padding: 1rem;
-      border-radius: 12px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
       transition: transform 0.2s ease;
     }
-
     .project:hover {
-      transform: scale(1.03);
-      background: rgba(255, 255, 255, 0.08);
+      transform: scale(1.02);
+      background-color: #334155;
     }
 
     footer {
-      margin-top: 3rem;
+      margin-top: 4rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #999;
+      color: #94a3b8;
     }
 
     #tsparticles {
       position: fixed;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      .project {
-        padding: 0.8rem;
-      }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Particles Background -->
   <div id="tsparticles"></div>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- HEADER -->
-    <header>
-      <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-      <p>iOS Developer · Swift Enthusiast · CS Student</p>
-      <p>
-        <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-        <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
-      </p>
-    </header>
+  <header>
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p>iOS Developer · Swift Enthusiast · CS Student</p>
+    <p>
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a> ·
+      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank">LinkedIn</a>
+    </p>
+  </header>
 
-    <!-- PROJECTS -->
-    <section>
-      <h2>📱 Projects</h2>
-      <ul>
-        <li class="project"><strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
-        <li class="project"><strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
-        <li class="project"><strong>Weatherly</strong> – Animated Apple-style weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
-        <li class="project"><strong>TripiFy</strong> – Travel planner with itinerary and map support · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
-      </ul>
-    </section>
+  <section>
+    <h2>🚀 Projects</h2>
+    <div class="project">
+      <strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a>
+    </div>
+    <div class="project">
+      <strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a>
+    </div>
+    <div class="project">
+      <strong>Weatherly</strong> – Animated Apple-style weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a>
+    </div>
+    <div class="project">
+      <strong>TripiFy</strong> – Travel planner with itinerary and map support · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a>
+    </div>
+  </section>
 
-    <!-- SKILLS -->
-    <section>
-      <h2>🛠 Skills</h2>
-      <ul>
-        <li>Swift, SwiftUI, UIKit, Combine</li>
-        <li>CoreData, CloudKit, VisionKit, UserNotifications</li>
-        <li>Java, HTML, CSS, JavaScript, Git</li>
-      </ul>
-    </section>
+  <footer>
+    Portfolio © 2025 · Built by Krishay Gahlaut
+  </footer>
 
-    <!-- EDUCATION -->
-    <section>
-      <h2>🎓 Education</h2>
-      <p>B.Tech in Computer Science (2023–2027)</p>
-      <p>SRM Institute of Science & Technology, Chennai</p>
-      <p>3rd Year · CGPA: 8.3</p>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section>
-      <h2>🏆 Achievements</h2>
-      <ul>
-        <li>Built and launched 4+ iOS/macOS apps on GitHub</li>
-        <li>Apps downloaded & tested 300+ times via TestFlight/GitHub</li>
-        <li>Volunteered at Indian Red Cross Society & NGOs</li>
-      </ul>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      Made with ❤️ by Krishay Gahlaut · © 2025
-    </footer>
-  </main>
-
-  <!-- PARTICLE.JS SCRIPT -->
   <script>
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true, zIndex: -1 },
@@ -181,9 +103,7 @@
         },
         move: { enable: true, speed: 1 }
       },
-      background: {
-        color: "#0f2027"
-      }
+      background: { color: "#0f172a" }
     });
   </script>
 </body>
