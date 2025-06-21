@@ -3,82 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishay Gahlaut | iOS Developer</title>
+  <title>Krishay Gahlaut | iOS & Web Developer</title>
+
+  <!-- Chart.js for skill charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- tsParticles for background animation -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f2027;
       color: #f1f1f1;
-      line-height: 1.6;
       padding: 2rem;
-      position: relative;
+      line-height: 1.6;
       z-index: 1;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header, section, footer {
       position: relative;
-      z-index: 10;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      color: #00ffff;
-    }
-
-    ul {
-      list-style: none;
-      margin-top: 1rem;
-      padding: 0;
-    }
-
-    li {
-      margin: 0.8rem 0;
-    }
-
-    .section-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      transition: 0.2s ease;
-    }
-
-    .section-box:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #999;
     }
 
     #tsparticles {
@@ -90,42 +34,122 @@
       left: 0;
     }
 
+    header, section, footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #00ffff;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project, .section-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      transition: 0.2s ease;
+    }
+
+    .project:hover, .section-box:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .skills-chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .skills-chart-container div {
+      text-align: center;
+    }
+
+    .skills-chart-container p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
-      h2 { font-size: 1.3rem; }
+      h2 { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Particles Background -->
   <div id="tsparticles"></div>
 
+  <!-- Header -->
   <header>
     <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p>iOS Developer · Swift Enthusiast · CS Student · Front-End Developer</p>
+    <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
     <p>
       <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a> ·
-      <a href="https://linkedin.com/in/krishaygahlaut" target="_blank">LinkedIn</a>
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
     </p>
   </header>
 
+  <!-- Projects -->
   <section>
     <h2>📱 Projects</h2>
-    <div class="section-box"><strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-    <div class="section-box"><strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-    <div class="section-box"><strong>Weatherly</strong> – Animated Apple-style weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-    <div class="section-box"><strong>TripiFy</strong> – Travel planner with itinerary and map support · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
+    <ul>
+      <li class="project"><strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
+      <li class="project"><strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
+      <li class="project"><strong>Weatherly</strong> – Apple-style animated weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
+      <li class="project"><strong>TripiFy</strong> – Travel planner with itinerary and maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
+    </ul>
   </section>
 
+  <!-- Skills -->
   <section>
-    <h2>💻 Skills</h2>
-    <div class="section-box">
-      Swift, SwiftUI, UIKit, Combine<br>
-      CoreData, CloudKit, VisionKit, UserNotifications<br>
-      Java, HTML, CSS, JavaScript, Git
+    <h2>🧠 Skills Overview</h2>
+    <p>Proficiency across mobile and web technologies:</p>
+    <div class="skills-chart-container">
+      <div><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
+      <div><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
+      <div><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
+      <div><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
+      <div><canvas id="jsChart" width="100" height="100"></canvas><p>JavaScript</p></div>
     </div>
   </section>
 
+  <!-- Education -->
   <section>
     <h2>🎓 Education</h2>
     <div class="section-box">
@@ -135,19 +159,23 @@
     </div>
   </section>
 
+  <!-- Achievements -->
   <section>
     <h2>🏆 Achievements</h2>
-    <div class="section-box">
-      • Built 4+ fully functional iOS apps published on GitHub<br>
-      • Built and deployed this portfolio website from scratch using HTML, CSS, and JS<br>
-      • Volunteered at Indian Red Cross Society at district level
-    </div>
+    <ul>
+      <li class="section-box">Built 4+ polished apps using SwiftUI, CoreData, CloudKit</li>
+      <li class="section-box">Used VisionKit OCR to achieve 95%+ receipt scan accuracy</li>
+      <li class="section-box">Reduced expense calculation time by 80% with smart logic</li>
+      <li class="section-box">Built and deployed this website using HTML, CSS, and JavaScript</li>
+    </ul>
   </section>
 
+  <!-- Footer -->
   <footer>
     🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
 
+  <!-- tsParticles -->
   <script>
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true, zIndex: 0 },
@@ -165,6 +193,35 @@
       },
       background: { color: "#0f2027" }
     });
+  </script>
+
+  <!-- Chart.js Pie Charts -->
+  <script>
+    function createPieChart(id, percent) {
+      new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [percent, 100 - percent],
+            backgroundColor: ['#00ffff', '#1e2e3e'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          cutout: '70%',
+          plugins: {
+            tooltip: { enabled: false },
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    createPieChart('swiftChart', 90);
+    createPieChart('swiftuiChart', 85);
+    createPieChart('htmlChart', 80);
+    createPieChart('javaChart', 75);
+    createPieChart('jsChart', 70);
   </script>
 </body>
 </html>
