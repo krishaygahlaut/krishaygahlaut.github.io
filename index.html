@@ -4,161 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishay Gahlaut | Portfolio</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="global.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #111;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 1000;
-    }
-    nav .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.2rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    nav ul li a:hover {
-      color: #007aff;
-    }
-    .theme-toggle {
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      border: none;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-    }
-    header {
-      text-align: center;
-      padding: 6rem 2rem 2rem;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #007aff;
-    }
-    .project {
-      background: #f5f5f5;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #f1f1f1;
-      color: #555;
-      font-size: 0.9rem;
-    }
-    .dark-mode {
-      background: #0d1117;
-      color: #f1f1f1;
-    }
-    .dark-mode nav {
-      background: #161b22;
-    }
-    .dark-mode nav ul li a {
-      color: #ddd;
-    }
-    .dark-mode .project {
-      background: #1e1e1e;
-    }
-    .dark-mode footer {
-      background: #161b22;
-      color: #aaa;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
 </head>
 <body>
+  <button class="toggle" onclick="toggleTheme()">🌗</button>
   <nav>
     <div class="logo">Krishay</div>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="skills.html">Skills</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit" target="_blank">Resume</a></li>
+      <li><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif/edit?usp=drivesdk" target="_blank">📄 Resume</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
   </nav>
 
   <header>
-    <h1 data-aos="fade-up">👋 I'm Krishay Gahlaut</h1>
-    <p data-aos="fade-up" data-aos-delay="200">iOS & Web Developer · Swift Enthusiast · Student</p>
+    <h1>👋 I'm Krishay Gahlaut</h1>
+    <p>iOS & Web Developer · Swift Enthusiast · CS Student</p>
   </header>
 
-  <section id="projects">
-    <h2 data-aos="fade-right">📱 Projects</h2>
-    <div class="project" data-aos="fade-up"><strong>BillBuster</strong> — UPI, OCR, PDF export. <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-    <div class="project" data-aos="fade-up"><strong>FitFuel</strong> — AI meal logger + analytics. <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-    <div class="project" data-aos="fade-up"><strong>Weatherly</strong> — Animated weather app. <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-    <div class="project" data-aos="fade-up"><strong>TripiFy</strong> — Smart travel planner. <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
-  </section>
-
-  <footer>
-    🚀 Portfolio by Krishay Gahlaut · 2025
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    const toggleTheme = () => document.body.classList.toggle('dark-mode');
-  </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
+  <footer>🚀 Portfolio by Krishay Gahlaut · 2025</footer>
+  <script src="script.js"></script>
 </body>
 </html>
