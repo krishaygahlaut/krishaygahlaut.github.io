@@ -4,126 +4,102 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishay Gahlaut | iOS Developer</title>
+
+  <!-- Chart.js for skill pie charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- tsParticles for animated background -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
   <style>
-    /* Base Styles */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: #0f2027;
+      color: #f1f1f1;
       line-height: 1.6;
       padding: 2rem;
       position: relative;
       z-index: 1;
-      transition: all 0.3s ease;
-    }
-
-    :root {
-      --bg-color: #0f2027;
-      --text-color: #f1f1f1;
-      --accent-color: #00ffff;
-    }
-
-    body.light {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --accent-color: #006aff;
     }
 
     a {
-      color: var(--accent-color);
+      color: #00ffff;
       text-decoration: none;
     }
+    a:hover { text-decoration: underline; }
 
-    header, footer {
+    header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.05);
-      padding: 1rem;
-      border-radius: 10px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .toggle-theme {
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      color: var(--accent-color);
-      font-size: 1.2rem;
-    }
-
     h1 {
-      font-size: 2.5rem;
-      margin: 1rem 0;
+      font-size: 2.8rem;
+      font-weight: bold;
     }
-
     h2 {
-      color: var(--accent-color);
-      margin-top: 2rem;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
+      color: #00ffff;
+      margin-top: 3rem;
     }
 
-    .project, .achievement {
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .project {
       background: rgba(255, 255, 255, 0.05);
       padding: 1rem;
       border-radius: 12px;
+      transition: transform 0.2s ease;
       margin-top: 1rem;
     }
 
-    .skills-grid, .achievements {
+    .project:hover {
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .skills-chart-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 1rem;
-    }
-
-    .circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: conic-gradient(var(--accent-color) 0% 0%, #1e293b 0% 100%);
-      display: flex;
       justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      font-size: 1rem;
-      position: relative;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .circle::after {
-      content: attr(data-percent) "%";
-      position: absolute;
-      color: var(--text-color);
+    .skills-chart-container div {
+      text-align: center;
+    }
+
+    .skills-chart-container p {
+      margin-top: 0.5rem;
+      font-weight: bold;
     }
 
     footer {
+      margin-top: 3rem;
+      text-align: center;
       font-size: 0.9rem;
       color: #999;
     }
 
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.4rem; }
+      .project { padding: 0.8rem; }
+    }
+
+    /* Particle Background */
     #tsparticles {
       position: fixed;
       z-index: 0;
@@ -135,84 +111,67 @@
   </style>
 </head>
 <body>
+  <!-- Background Animation -->
   <div id="tsparticles"></div>
 
+  <!-- HEADER -->
   <header>
-    <nav>
-      <strong>Krishay</strong>
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#resume">Resume</a></li>
-      </ul>
-      <button class="toggle-theme" onclick="toggleTheme()">🌗</button>
-    </nav>
+    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
+    <p>iOS Developer · Swift Enthusiast · CS Student</p>
+    <p>
+      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
+      <a href="https://github.com/krishaygahlaut" target="_blank">GitHub</a>
+    </p>
   </header>
 
-  <main>
-    <h1>👋 Hi, I'm Krishay Gahlaut</h1>
-    <p style="text-align:center">iOS Developer · Swift Enthusiast · CS Student</p>
-    <p style="text-align:center">
-      <a href="mailto:krishaygahlaut@icloud.com">krishaygahlaut@icloud.com</a> ·
-      <a href="https://github.com/krishaygahlaut">GitHub</a>
-    </p>
+  <!-- PROJECTS -->
+  <section>
+    <h2>📱 Projects</h2>
+    <ul>
+      <li class="project"><strong>BillBuster</strong> – Smart bill splitter with UPI, OCR, and PDF export · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></li>
+      <li class="project"><strong>FitFuel</strong> – AI meal tracker with reminders, iCloud sync · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></li>
+      <li class="project"><strong>Weatherly</strong> – Animated Apple-style weather UI · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></li>
+      <li class="project"><strong>TripiFy</strong> – Travel planner with itinerary and map support · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></li>
+    </ul>
+  </section>
 
-    <section id="projects">
-      <h2>📱 Projects</h2>
-      <div class="project"><strong>BillBuster</strong> – Group expense splitter with UPI, OCR & reminders · <a href="https://github.com/krishaygahlaut/BillBuster">GitHub</a></div>
-      <div class="project"><strong>FitFuel</strong> – AI-based meal tracker with analytics, dark mode · <a href="https://github.com/krishaygahlaut/FitFuel">GitHub</a></div>
-      <div class="project"><strong>Weatherly</strong> – Apple-style animated weather app · <a href="https://github.com/krishaygahlaut/Weatherly">GitHub</a></div>
-      <div class="project"><strong>TripiFy</strong> – Smart travel planner with itinerary & maps · <a href="https://github.com/krishaygahlaut/TripiFy">GitHub</a></div>
-    </section>
+  <!-- SKILLS CHART -->
+  <section id="skills">
+    <h2>🧠 Skills Overview</h2>
+    <p>Proficiency across various technologies:</p>
+    <div class="skills-chart-container">
+      <div><canvas id="swiftChart" width="100" height="100"></canvas><p>Swift</p></div>
+      <div><canvas id="swiftuiChart" width="100" height="100"></canvas><p>SwiftUI</p></div>
+      <div><canvas id="htmlChart" width="100" height="100"></canvas><p>HTML/CSS</p></div>
+      <div><canvas id="javaChart" width="100" height="100"></canvas><p>Java</p></div>
+      <div><canvas id="jsChart" width="100" height="100"></canvas><p>JavaScript</p></div>
+    </div>
+  </section>
 
-    <section id="skills">
-      <h2>📊 Skills</h2>
-      <div class="skills-grid">
-        <div class="circle" data-percent="90"></div><p>SwiftUI</p>
-        <div class="circle" data-percent="85"></div><p>Swift</p>
-        <div class="circle" data-percent="75"></div><p>Java</p>
-        <div class="circle" data-percent="80"></div><p>HTML/CSS</p>
-        <div class="circle" data-percent="70"></div><p>JavaScript</p>
-      </div>
-    </section>
+  <!-- EDUCATION -->
+  <section>
+    <h2>🎓 Education</h2>
+    <p><strong>B.Tech in Computer Science</strong> (2023–2027)<br>SRM Institute of Science & Technology, Chennai</p>
+    <p>3rd Year · CGPA: 8.3</p>
+  </section>
 
-    <section id="achievements">
-      <h2>🏆 Achievements</h2>
-      <div class="achievements">
-        <div class="achievement">Built 4+ launch-ready iOS/macOS apps</div>
-        <div class="achievement">Integrated OCR & VisionKit for 95% accuracy</div>
-        <div class="achievement">Developed expense logic reducing split time by 80%</div>
-      </div>
-    </section>
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <h2>🏆 Achievements</h2>
+    <ul>
+      <li>Built 4+ polished apps with SwiftUI, CoreData, and CloudKit</li>
+      <li>Used VisionKit OCR to achieve 95%+ accuracy on scanned receipts</li>
+      <li>Reduced expense calculation time by 80% with custom split logic</li>
+    </ul>
+  </section>
 
-    <section id="about">
-      <h2>🎓 About Me</h2>
-      <p>B.Tech in Computer Science (2023–2027) @ SRM Institute, Chennai</p>
-      <p>3rd Year · CGPA: 8.3 · Building launch-ready iOS/macOS apps</p>
-    </section>
-
-    <section id="resume">
-      <h2>📄 Resume</h2>
-      <p><a href="https://docs.google.com/document/d/18DjbJqTi_LdFTWc6aNFyj3nk5PRZdvif" target="_blank">View My Resume</a></p>
-    </section>
-  </main>
-
+  <!-- FOOTER -->
   <footer>
-    <p id="footer">Made with ❤️ by Krishay Gahlaut · 2025</p>
+    🚀 Portfolio by Krishay Gahlaut · 2025
   </footer>
 
+  <!-- Particle Animation JS -->
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light');
-    }
-
-    document.querySelectorAll('.circle').forEach(circle => {
-      const percent = circle.getAttribute('data-percent');
-      circle.style.background = `conic-gradient(var(--accent-color) 0% ${percent}%, #1e293b ${percent}% 100%)`;
-    });
-
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true, zIndex: -1 },
       particles: {
@@ -229,6 +188,36 @@
       },
       background: { color: "#0f2027" }
     });
+  </script>
+
+  <!-- Pie Chart JS -->
+  <script>
+    function createPieChart(canvasId, percent) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [percent, 100 - percent],
+            backgroundColor: ['#00ffff', '#1e2e3e'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          cutout: '70%',
+          plugins: {
+            tooltip: { enabled: false },
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    createPieChart('swiftChart', 90);
+    createPieChart('swiftuiChart', 85);
+    createPieChart('htmlChart', 75);
+    createPieChart('javaChart', 80);
+    createPieChart('jsChart', 70);
   </script>
 </body>
 </html>
